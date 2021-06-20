@@ -18,8 +18,20 @@
       <input type="submit" value="Log In"></input>
     </form>
     <h1 id="greeting" class="hidden"></h1>
+    <form id="todo-form">
+      <input type="text" placeholder="Write a To Do and Press Enter" required
+        maxlength="25" />
+    </form>
+    <ul id="todo-list">
+    </ul>
     <h2 id="clock">00:00</h2>
+    <div id="advice">
+      <span></span>
+    </div>
+    <img id="background" src="https://source.unsplash.com/random/1920x1080" alt="background"></img>
     <script src="js/greeting.js"></script>
     <script src="js/clock.js"></script>
+    <script src="js/advice.js"></script>
+    <script src="js/todo.js"></script>
   </body>
 </html>

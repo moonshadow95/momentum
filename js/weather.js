@@ -28,7 +28,6 @@ function onGeoOk(position) {
       );
       citySpan.innerText = data.name;
       temp.innerText = tempValue;
-      console.log(data);
     });
 }
 function onGeoError() {

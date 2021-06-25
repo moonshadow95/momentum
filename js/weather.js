@@ -9,7 +9,7 @@ function onGeoOk(position) {
       const weather = document.querySelector('#weather');
       const weatherIcon = document.querySelector('#weather-icon');
       const citySpan = weather.querySelector('span');
-      const tempContainer = document.querySelector('#temp');
+      const temp = document.querySelector('#temp span');
       const weatherIcons = {
         01: 'far fa-sun',
         02: 'fas fa-cloud-sun',
@@ -21,17 +21,14 @@ function onGeoOk(position) {
         13: 'far fa-snowflake',
         50: 'fas fa-smog',
       };
-      weather.append(
-        weatherIcon.classList.add(
-          weatherIcons[parseInt(data.weather[0].icon.substr(0, 2))].split(
-            ' '
-          )[0],
-          weatherIcons[parseInt(data.weather[0].icon.substr(0, 2))].split(
-            ' '
-          )[1]
-        )
+      const tempValue = `${data.main.temp.toFixed(1)}˚`;
+      weatherIcon.classList.add(
+        weatherIcons[parseInt(data.weather[0].icon.substr(0, 2))].split(' ')[0],
+        weatherIcons[parseInt(data.weather[0].icon.substr(0, 2))].split(' ')[1]
       );
       citySpan.innerText = data.name;
+      temp.innerText = tempValue;
+      console.log(data);
     });
 }
 function onGeoError() {

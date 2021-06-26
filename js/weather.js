@@ -6,10 +6,9 @@ function onGeoOk(position) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const weather = document.querySelector('#weather');
       const weatherIcon = document.querySelector('#weather-icon');
-      const citySpan = weather.querySelector('span');
-      const temp = document.querySelector('#temp span');
+      const city = weather.querySelector('#city span');
+      const temp = document.querySelector('#temp');
       const weatherIcons = {
         01: 'far fa-sun',
         02: 'fas fa-cloud-sun',
@@ -21,12 +20,12 @@ function onGeoOk(position) {
         13: 'far fa-snowflake',
         50: 'fas fa-smog',
       };
-      const tempValue = `${data.main.temp.toFixed(1)}˚`;
+      const tempValue = `${Math.floor(data.main.temp)}˚`;
       weatherIcon.classList.add(
         weatherIcons[parseInt(data.weather[0].icon.substr(0, 2))].split(' ')[0],
         weatherIcons[parseInt(data.weather[0].icon.substr(0, 2))].split(' ')[1]
       );
-      citySpan.innerText = data.name;
+      city.innerText = data.name;
       temp.innerText = tempValue;
     });
 }
